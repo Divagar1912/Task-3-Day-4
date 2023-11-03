@@ -1,0 +1,348 @@
+1.Create a class called "Person" with attributes "name" and "age". Also create a constructor and getter methods for the attributes
+
+
+package task3;
+
+public class person {
+	
+	private String name;
+	private int age;
+	
+	
+	private person(String name , int age) {
+		this.name = name;
+		this.age = age;
+		
+	}
+
+	public String getname() {
+		return name;
+		
+	}
+	public int getage() {
+		return age;
+	}
+
+	public static void main(String[] args) {
+		person obj = new person("Divagar",27);
+		System.out.println(obj.getname());
+		System.out.println(obj.getage());
+				
+	}
+
+	}
+	
+output:
+Divagar
+27
+
+
+2.From the below image, Create an implementation for a java class named Employee that represents an employee with attributes 
+including ID, name,and salary. The class includes a method called raiseSalary(percent), which updates the salary by a specified percentage
+
+
+package task3;
+
+public class Employee {
+	
+	public int id = 1234;
+	public String firstname = "Divagar";
+	public String lastname = "velusamy";
+	public int salary = 1200;
+	public int raisesalary;
+
+	public int getid() {
+		return id;
+	}
+	
+	public String getfirstname() {
+		return firstname;
+	}
+	
+	public String getlastname() {
+		return lastname;
+	}
+	
+	public int getsalary() {
+		return salary;
+	}
+	
+	public int raisesalary() {
+		raisesalary = salary *12;
+		return raisesalary;
+	}
+	
+		
+	public static void main(String[] args) {
+
+		Employee obj = new Employee();
+		System.out.println(obj.getid());
+		System.out.println(obj.getfirstname());
+		System.out.println(obj.getlastname());
+		System.out.println(obj.getsalary());
+		System.out.print(obj.raisesalary());
+	}
+
+	
+
+}
+
+output:
+1234
+Divagar
+velusamy
+1200
+14400
+
+
+3.Create a class circle class with radius as data member. Create two constructors (no argument, and two arguments) and a method to calculate Circumference.
+
+
+
+package task3;
+
+public class Circle {
+
+	private double pi;
+	private int radius;
+	
+	/*public Circle() {
+		
+	}*/
+	
+	
+	public Circle(double pi, int radius) {
+		this.pi= pi;
+		this.radius=radius;
+		
+	}
+	
+	public void circumference() {
+		double circumference = 2*this.pi*this.radius;
+		System.out.println(circumference);
+		
+	}
+
+
+	public static void main(String[] args) {
+
+		Circle obj = new Circle(3.14,5); 
+		obj.circumference();
+		
+		
+	}
+
+}
+
+
+output:
+31.400000000000002
+
+
+
+4.Create a class Account class with balance as data member Create two constructors (no
+argument, and two arguments) and methods to withdraw and deposit balance.
+
+
+package task3;
+
+public class Account {
+    private double balance;
+
+    public Account() {
+        this.balance = 250.23;
+    }
+
+    public Account(double normalBalance) {
+        this.balance = normalBalance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
+        } else {
+            System.out.println("Invalid deposit amount. Please deposit a positive amount.");
+        }
+    }
+    
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+        } else if (amount <= 0) {
+            System.out.println("Invalid withdrawal amount. Please enter a positive amount.");
+        } else {
+            System.out.println("Insufficient balance for withdrawal.");
+        }
+    }
+
+
+    
+    public double getBalance() {
+        return balance;
+    }
+
+	public static void main(String[] args) {
+
+		Account account1 = new Account();
+        System.out.println("Account 1 Balance is : " + account1.getBalance());
+
+
+        Account account2 = new Account(1000.0);
+        System.out.println("Account 2 Balance is: " + account2.getBalance());
+
+        account2.deposit(1500.0);
+        account2.withdraw(1100.0);
+        System.out.println("Account 2 Balance is: " + account2.getBalance());
+
+	
+
+
+
+
+       }
+
+           }
+
+otuput :
+Account 1 Balance is : 250.23
+Account 2 Balance is: 1000.0
+Deposited: 1500.0
+Withdrawn: 1100.0
+Account 2 Balance is: 1400.0
+
+
+5. Create a Tea class in Java that includes the following methods:
+
+a)prepare Tea() - a method that prepares a basic tea with hot water and tea leaves. 
+
+b)addMilk() - a method that adds milk to the basic tea. 
+
+c)addSugar() - a method that adds sugar to the basic tea
+
+
+package task3;
+
+	public class Tea {
+	    private boolean isPrepared = false;
+	    private boolean hasMilk = false;
+	    private boolean hasSugar = false;
+
+	    public void prepareTea() {
+	        isPrepared = true;
+	        System.out.println("Basic tea is prepared with hot water and tea leaves.");
+	    }
+
+	    public void addMilk() {
+	        if (isPrepared) {
+	            hasMilk = true;
+	            System.out.println("Milk is added to the tea.");
+	        } else {
+	            System.out.println("Tea needs to be prepared first before adding milk.");
+	        }
+	    }
+
+	    public void addSugar() {
+	        if (isPrepared) {
+	            hasSugar = true;
+	            System.out.println("Sugar is added to the tea.");
+	        } else {
+	            System.out.println("Tea needs to be prepared first before adding sugar.");
+	        }
+	    }
+
+	    public static void main(String[] args) {
+	        Tea obj = new Tea();
+
+	        obj.prepareTea();
+	        obj.addMilk();
+	        obj.addSugar();
+	    }
+	}
+
+Output:
+
+Basic tea is prepared with hot water and tea leaves.
+Milk is added to the tea.
+Sugar is added to the tea.
+
+
+
+6.Create three subclasses of the Tea class: BlackTea, Green Tea, and Herbal Tea. 
+Each subclass should override the prepare Tea() method,
+to prepare the specific type of tea (black tea, green tea, or herbal tea) 
+with appropriate ingredients and brewing times.
+
+
+package task3;
+
+public class Black_Tea extends Tea {
+
+	@Override
+    public void prepareTea() {
+        super.prepareTea();
+    }
+
+    public static void main(String[] args) {
+    
+        System.out.println("Black tea is brewed for 3 minutes.");
+
+    
+    
+    }
+}
+
+output:
+Black tea is brewed for 3 minutes.
+
+
+
+package task3;
+
+public class Green_Tea extends Tea{
+
+	
+	@Override
+    public void prepareTea() {
+        super.prepareTea();
+    }
+	 public static void main(String[] args) {
+		    
+        System.out.println("Green tea is brewed for 2 minutes.");
+
+	    
+	    
+	    }
+
+}
+
+output:
+Green tea is brewed for 2 minutes.
+
+
+
+package task3;
+
+public class Herbal_Tea extends Tea{
+
+	@Override
+    public void prepareTea() {
+        super.prepareTea();
+    }
+	 public static void main(String[] args) {
+		    
+	        System.out.println("Herbal tea is brewed for 5 minutes with herbs and spices.");
+
+	    
+	    
+	    }
+
+}
+
+output:
+
+Herbal tea is brewed for 5 minutes with herbs and spices.
+
+
